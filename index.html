@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Backtracking</h1>
-    <font>Copyright ©2002 by David Matuszek</font>
+    <p style="margin-top: 0px;">Copyright ©2002 by David Matuszek</p>
     <p>
         Backtracking is a form of recursion.<br /><br />
         The usual scenario is that you are faced with a number of options, and
@@ -31,8 +31,7 @@
       </p>
 
       This needs an example.<br>
-      <center>   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTDkJ9wYuhCMfNCwWbQ6vqUOZkTncrFpMoQ&amp;usqp=CAU" 
-     />"
+      <center>   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrTDkJ9wYuhCMfNCwWbQ6vqUOZkTncrFpMoQ&amp;usqp=CAU" />
      </center>
     
     <ol type="1">
@@ -55,6 +54,7 @@
 
     <h3>The backtracking algorithm.</h3>
     <p>Here is the algorithm (in pseudocode) for doing backtracking from a given node n:</p>
+    <font color="#660000" size="4">
     <pre>
         boolean solve(Node n) {
            if n is a leaf node {
@@ -68,7 +68,7 @@
            }
        }
        </pre>
-     <font>
+    </font>
      <p>
           Notice that the algorithm is expressed as a
           <i>boolean</i> 
@@ -96,6 +96,7 @@
         Hence, to decide whether any non-leaf node <font color="#660000" size="4">n</font> is solvable (part of a path to a goal node), all you have to do is test whether any child of <font color="#660000" size="4">n</font> is solvable. This is done recursively, on each child of <code color="#660000" size="4">n</code>. 
         In the above code, this is done by the lines
     </p>
+    <font color="#660000" size="4">
     <pre>
         for each child c of n {
             if solve(c) succeeds, return true
@@ -111,6 +112,7 @@
         else return false
     }
     </pre>
+    </font>
     <p>
         The backtracking algorithm is simple but important. You should understand it thoroughly. Another way of stating it is as follows:
     </p>
@@ -134,7 +136,8 @@
     <p>
         Backtracking is a rather typical recursive algorithm, and any recursive algorithm can be rewritten as a stack algorithm. In fact, that is how your recursive algorithms are translated into machine or assembly language
     </p>
-    <pre>
+    <font color="#660000" size="4">
+    <pre border:1px solid>
         boolean solve(Node n) {
             put node n on the stack;
             while the stack is not empty {
@@ -150,7 +153,9 @@
             }
             return false
         }
-    </pre><p>
+    </pre>
+   </font>
+    <p>
         Starting from the root, the only nodes that can be pushed onto the stack are the children of the node currently on the top of the stack, and these are only pushed on one child at a time; hence, the nodes on the stack at all times describe a valid path in the tree. Nodes are removed from the stack only when it is known that they have no goal nodes among their descendents. Therefore, if the root node gets removed (making the stack empty), there must have been no goal nodes at all, and no solution to the problem.
     </p>
     <p>
@@ -162,8 +167,8 @@
     <p>
         Here is the recursive backtracking algorithm, modified slightly to print (in reverse order) the nodes along the successful path:
     </p>
-    <font color="#660000" size="4">
-    <pre>
+    <font color="#660000" size="4" border="1px solid #D8D8D8">
+    <pre >
         boolean solve(Node n) {
         if n is a leaf node {
             if the leaf is a goal node {
@@ -182,6 +187,7 @@
         }
     }
     </pre>
+    </font>
     <h3>
         Keeping backtracking simple
     </h3>
@@ -394,7 +400,8 @@
         <font color="#660000" size="4">boolean okToColor(int row, int column, int color)</font>
     </dt>
     <dd>Used by method 2 to check, at every node, whether there is an adjacent node already colored with the given color.</dd><br>
-    <dt>int[] nextRowAndColumn(int row, int column)</dt>
+    <dt>
+        <font color="#660000" size="4">int[] nextRowAndColumn(int row, int column)</font></dt>
     <dd>
         Used by both methods to find the next "country" (actually, the row and column of the next square on the checkerboard).
     </dd>
